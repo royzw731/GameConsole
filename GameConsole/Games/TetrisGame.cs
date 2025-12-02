@@ -1,4 +1,5 @@
-﻿using GameConsole.Interfaces;
+﻿
+using GameConsole.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
