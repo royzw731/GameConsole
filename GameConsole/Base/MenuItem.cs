@@ -1,20 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GameConsole.Base
 {
-    public class MenuItem
+    internal class MenuItem
     {
-        public string DisplayName { get; set; }
-        public Screen Screen { get; set; }
+        public string DisplayName
+        {
+            get; set;
+        }
+        public Screen Screen
+        {
+            get; set;
+        }
 
-        public MenuItem(string displayName, Screen screen) 
+        public MenuItem(string displayName, Screen screen)
         {
             this.DisplayName = displayName;
-            this.Screen= screen;
+            this.Screen = screen;
         }
+
     }
 }

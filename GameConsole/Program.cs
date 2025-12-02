@@ -1,4 +1,5 @@
-﻿using GameConsole.Games;
+﻿using GameConsole.Base;
+using GameConsole.Games;
 using GameConsole.Interfaces;
 using GameConsole.Pages;
 
@@ -8,12 +9,12 @@ namespace GameConsole
     {
         static void Main(string[] args)
         {
-            
-            StartScreen mainScreen = new StartScreen();
-            mainScreen.Show();
-           PacManGame game = new PacManGame();
-            game.Play();
-
+            StartScreen s = new StartScreen();
+            s.Show();
+           
+            MenuGames b = new MenuGames("");
+            b.Show();
+           
             //List<IGamePlay> games = new List<IGamePlay>();
             //games.Add(new Games.TetrisGame());
             //games.Add(new Games.FluffyBirdGame());

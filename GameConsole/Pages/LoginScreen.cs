@@ -18,7 +18,7 @@ namespace GameConsole.Pages
         {
             base.Show();
 
-            CenterText("Welcome back");
+            CenterText("Enter login menu");
             Console.ReadKey();
         }
     }
