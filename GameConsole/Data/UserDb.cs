@@ -12,9 +12,6 @@ namespace GameConsole.Data
     internal class UserDb
     {
         private static List<User> user1;
-
-
-
         public static User RegisterUser(string name, string userName, string password)
         {
             User newUser = new User(name, userName, password);

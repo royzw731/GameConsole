@@ -17,9 +17,7 @@ namespace GameConsole.Models
         public string Name { get { return name; } set { name = value; } }
         public string Password { get { return password; } set { password = value; } }
         public string UserName { get { return userName; } set { userName = value; } }
-
-
-        public User(string name, string userName, string password)
+       public User(string name, string userName, string password)
         {
             this.name = name;
             this.userName = userName;
