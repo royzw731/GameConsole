@@ -20,7 +20,7 @@ namespace GameConsole.Pages
             base.Show();
 
             String bob = "WELCOME YA MELEH";
-            CenterText(bob);
+            CenterText(bob);    
 
             Console.ReadKey();
         }
