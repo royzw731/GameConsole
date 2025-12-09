@@ -9,6 +9,8 @@ namespace GameConsole.Base
     internal class MenuScreen : Screen
     {
         private List<MenuItem> items;
+
+      
         public MenuScreen(string title) : base(title)
         {
             items = new List<MenuItem>();

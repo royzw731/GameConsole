@@ -1,4 +1,6 @@
-﻿using GameConsole.Models;
+﻿using GameConsole.Base;
+using GameConsole.Models;
+using GameConsole.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +13,16 @@ namespace GameConsole
     {
         public static User user;
 
+        public GameConsole()
+        {
+            RunApplication();
+        }
+
+        public void RunApplication()
+        {
+            StartSc mainScreen = new MainMenu();
+        }
     }
+
+   
 }

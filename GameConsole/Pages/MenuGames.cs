@@ -11,9 +11,9 @@ namespace GameConsole.Pages
 {
     internal class MenuGames : Screen
     {
-        public MenuGames(string title) : base(" Welcome to Games menu ")
-        { 
-            
+        public MenuGames() : base(" Welcome to Games menu ")
+        {
+            Show();
         }
         public override void Show()
         {

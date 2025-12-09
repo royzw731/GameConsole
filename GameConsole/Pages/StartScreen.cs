@@ -10,7 +10,8 @@ namespace GameConsole.Pages
 {
     public class StartScreen : Screen
     {
-        public StartScreen() : base("WELCOME TO FIRST PAGE!")
+        private string ans;
+        public StartScreen() : base("WELCOME TO OUR APP")
         {
             Show();
         }
@@ -19,10 +20,19 @@ namespace GameConsole.Pages
         {
             base.Show();
 
-            String bob = "WELCOME YA MELEH";
-            CenterText(bob);    
+            String bob = "DVIR HASSAN, ROY ZWILLING, YEHONATAN EDRI";
+            CenterText(bob);
 
-            Console.ReadKey();
+            Console.WriteLine("Enter $ to continue: ");
+            ans = Console.ReadLine();
+
+            while(ans != "$")
+            {
+                Console.WriteLine("No Bruh, Enter $ to continue: ");
+                ans = Console.ReadLine();
+            }
+
+            MenuScreen newScreen = new MenuScreen("bob");
         }
     }
 
