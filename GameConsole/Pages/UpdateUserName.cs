@@ -14,36 +14,47 @@ namespace GameConsole.Pages
     {
         private UserDB userDB;
 
-        public UpdateUserName(string title) : base(title)
+        public UpdateUserName(string title) : base("WELCOME TO UPDATING USERNAME AND PASSWORD")
         {
 
         }
         public override void Show()
         {
-           
-            bool flag = false;
-            while(flag!= true)
+            bool success = false;
+
+            while (!success)
             {
                 base.Show();
                 Console.BackgroundColor = ConsoleColor.Blue;
                 Console.ForegroundColor = ConsoleColor.White;
-                CenterText("Enter Your UserName");
-                String c = Console.ReadLine();
-                CenterText("Enter Your password");
-                String s = Console.ReadLine();
 
-                if (UserDb.Login(c, s)!= null)
+                CenterText("Enter Your UserName");
+                string username = Console.ReadLine();
+
+                CenterText("Enter Your Password");
+                string password = Console.ReadLine();
+
+                User user = UserDb.Login(username, password);
+
+                if (user != null)
                 {
-                   User user = UserDb.Login(c, s);
-                    Console.WriteLine("Enter new UserName");
-                    String newusername = Console.ReadLine();
-                    Console.WriteLine("Enter new Password");
-                    String newPassword = Console.ReadLine();
-                    UpdateNameAndPassword(user, newusername, newPassword);
-                    flag = true;
-                } 
+                    CenterText("Enter New UserName");
+                    string newUsername = Console.ReadLine();
+
+                    CenterText("Enter New Password");
+                    string newPassword = Console.ReadLine();
+
+                    UpdateNameAndPassword(user, newUsername, newPassword);
+                    CenterText("Details updated successfully!");
+                    success = true;
+                }
+                else
+                {
+                    CenterText("Wrong username or password. Try again.");
+                }
             }
         }
+
         private void UpdateNameAndPassword(User user, string? newusername, string? newPassword)
         {
             throw new NotImplementedException();

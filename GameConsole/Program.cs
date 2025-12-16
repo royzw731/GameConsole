@@ -10,7 +10,7 @@ namespace GameConsole
         static void Main(string[] args)
         {
             StartScreen s = new StartScreen();
-            s.Show();
+            s.Show(); 
             MenuGames b = new MenuGames();
             b.Show();
            
