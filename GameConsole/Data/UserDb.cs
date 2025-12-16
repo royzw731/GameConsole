@@ -49,9 +49,21 @@ namespace GameConsole.Data
             }
 
             throw new InvalidOperationException("user doesn't exist");
-        } public static void ChangePassword(User user, string password, string oldPassword, string username)
+        }
+        public static void ChangePassword(User user, string password, string oldPassword, string username)
         {
-            User newUser = user1.FirstOrDefault(u => u.Password == oldPassword&& u.UserName == username);
+            User newUser = user1.FirstOrDefault(u => u.Password == oldPassword && u.UserName == username);
+        } public static void UpdateNameAndPassword(User q, String newuserName, String newPassword)
+        {
+            foreach(var user in user1)
+            {
+                if(user.Username == q.Username&& user.Password == q.Password)
+                {
+                    user.Username = newuserName;
+                    user.Password = newPassword;
+                }
+            }
+            
         }
     }
 }
