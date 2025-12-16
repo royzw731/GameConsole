@@ -28,7 +28,20 @@ namespace GameConsole.Pages
 
             for (int i = 0; i < games.Count; i++)
             {
-                CenterText($"For {games[i].Name} enter {i + 1}");
+                Console.BackgroundColor = ConsoleColor.White;
+                if (i % 3 == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                }
+                else if (i % 3 == 1)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+                    CenterText($"For {games[i].Name} enter {i + 1}");
             }
             
             while (true)

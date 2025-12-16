@@ -20,7 +20,7 @@ namespace GameConsole
 
         public void RunApplication()
         {
-            StartSc mainScreen = new MainMenu();
+            Screen  mainScreen = new MainMenu();
         }
     }
 

@@ -11,7 +11,7 @@ namespace GameConsole
         {
             StartScreen s = new StartScreen();
             s.Show();
-            MenuGames b = new MenuGames("");
+            MenuGames b = new MenuGames();
             b.Show();
            
             //List<IGamePlay> games = new List<IGamePlay>();

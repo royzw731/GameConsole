@@ -17,12 +17,13 @@ namespace GameConsole.Pages
         public override void Show()
         {
             base.Show();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
             CenterText("Enter Your Desired Details");
             Console.ReadKey();
             String UserName, Password;
             base.Show();
             CenterText("Enter Login Info");
-
             CenterText("Enter User Name");
             UserName = Console.ReadLine();
             CenterText("Enter password");
