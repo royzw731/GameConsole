@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace GameConsole.Pages
 {
-    internal class MainMenu : MenuScreen
+    internal class LoginMenu : MenuScreen
     {
-        public MainMenu() : base("Main Menu")
+        public LoginMenu() : base("Hello " + Program.getUser().Name)
         {
-            Add("Register", new RegisterScreen());
-            Add("Login", new LoginScreen());
+            Add("userActionMenu", new UserActionMenu());
+            Add("menuGames", new MenuGames());
 
             Show();
         }

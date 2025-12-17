@@ -24,5 +24,7 @@ namespace GameConsole.Models
             this.password = password;
             this.highScores = new List<HighScore>();
         }
+
+        
     }
 }

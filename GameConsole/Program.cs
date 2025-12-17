@@ -1,31 +1,32 @@
 ﻿using GameConsole.Base;
+using GameConsole.Data;
 using GameConsole.Games;
 using GameConsole.Interfaces;
+using GameConsole.Models;
 using GameConsole.Pages;
+using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 
 namespace GameConsole
 {
     internal class Program
     {
+
+        public static User user;
         static void Main(string[] args)
         {
-            StartScreen s = new StartScreen();
-            s.Show();
-            MenuGames b = new MenuGames();
-            b.Show();
-           
-            //List<IGamePlay> games = new List<IGamePlay>();
-            //games.Add(new Games.TetrisGame());
-            //games.Add(new Games.FluffyBirdGame());
-            //games.Add(new Games.PacManGame());
+            RunApp();
+        }
 
-            //foreach (var game in games)
-            //{
-            //    game.Play();
-            //	Console.Write($" Game:{game.Name}");
-            //	Console.WriteLine($"Score:{game.Score}");
-            //}
+        private static void RunApp()
+        {
+            Screen stScreen = new StartScreen();
+        }
 
+        public static User getUser() { return user; }
+        public static void setUser(User u) 
+        {
+            user = new User(u.Name, u.UserName, u.Password);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace GameConsole.Pages
         public StartScreen() : base("WELCOME TO OUR APP")
         {
             Show();
+            MenuScreen newScreen = new MainMenu();
         }
 
         public override void Show()
@@ -31,8 +32,6 @@ namespace GameConsole.Pages
                 Console.WriteLine("No Bruh, Enter $ to continue: ");
                 ans = Console.ReadLine();
             }
-
-            MenuScreen newScreen = new MenuScreen("bob");
         }
     }
 

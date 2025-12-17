@@ -39,7 +39,7 @@ namespace GameConsole.Base
                 }
                 CenterText($"{items.Count + 1}-Exit");
 
-                CenterText($"choose between 1-{items.Count + 1})");
+                CenterText($"choose between (1-{items.Count + 1})");
                 int.TryParse(Console.ReadLine(), out choose);
                 if (choose > 0 && choose <= items.Count)
                     exit = true;
@@ -47,6 +47,7 @@ namespace GameConsole.Base
 
                 if (choose <= items.Count)
                 {
+
                     items[choose - 1].Screen.Show();
                     Console.Clear();
                     Show();
@@ -56,23 +57,7 @@ namespace GameConsole.Base
                     exit = true;
                 }
             }
-            Console.ReadKey();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            return;
         }
 
     }

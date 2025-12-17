@@ -13,7 +13,6 @@ namespace GameConsole.Pages
     {
         public MenuGames() : base(" Welcome to Games menu ")
         {
-            Show();
         }
         public override void Show()
         {

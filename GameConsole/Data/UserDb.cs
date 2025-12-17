@@ -11,23 +11,20 @@ namespace GameConsole.Data
 {
     internal class UserDb
     {
-        private static List<User> user1;
+        private static List<User> users = new List<User>();
 
-        public UserDb()
-        {
-            user1 = new List<User>();
-        }
+        
         public static User RegisterUser(string name, string userName, string password)
         {
             User newUser = new User(name, userName, password);
-            user1.Add(newUser);
+            users.Add(newUser);
 
             return newUser;
         }
 
         public static User Login(string username, string password)
         {
-            foreach (var user in user1)
+            foreach (var user in users)
             {
                 if (user.UserName == username && user.Password == password)
                 { return user; }
@@ -38,7 +35,7 @@ namespace GameConsole.Data
 
         public static void Update(User u)
         {
-            foreach (var user in user1)
+            foreach (var user in users)
             {
                 if (user.UserName == u.UserName)
                 {
@@ -49,9 +46,6 @@ namespace GameConsole.Data
             }
 
             throw new InvalidOperationException("user doesn't exist");
-        } public static void ChangePassword(User user, string password, string oldPassword, string username)
-        {
-            User newUser = user1.FirstOrDefault(u => u.Password == oldPassword&& u.UserName == username);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using GameConsole.Base;
 using GameConsole.Data;
+using GameConsole.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,6 @@ namespace GameConsole.Pages
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
             CenterText("Enter Your Desired Details");
-            Console.ReadKey();
             String UserName, Password;
             base.Show();
             CenterText("Enter Login Info");
@@ -28,14 +28,20 @@ namespace GameConsole.Pages
             UserName = Console.ReadLine();
             CenterText("Enter password");
             Password = Console.ReadLine();
-            if (UserDb.Login(UserName, Password) != null)
+            
+            while(UserDb.Login(UserName, Password) == null)
             {
-                Console.WriteLine("");
+                CenterText("Fail, pls try again");
+                CenterText("Enter User Name");
+                UserName = Console.ReadLine();
+                CenterText("Enter password");
+                Password = Console.ReadLine();
             }
-            else
-            {
-                Console.WriteLine("Login Failed, please try again");
-            }
-        }
-        }
+
+            User currentUser = new User(UserDb.Login(UserName, Password).Name, UserName, Password);
+            Program.setUser(currentUser);
+
+            Screen newScreen = new LoginMenu();
+         }
+    }
 }
