@@ -1,10 +1,12 @@
 ﻿
 using GameConsole.Interfaces;
+using GameConsole.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Towel.Mathematics;
 
 namespace GameConsole.Games
 {
@@ -34,6 +36,8 @@ namespace GameConsole.Games
 
 		public void Play()
 		{
+			Console.ForegroundColor = ConsoleColor.Green;
+			Console.BackgroundColor = ConsoleColor.Black;
 			ShowInstructions();
 
 			Console.Clear();
@@ -126,11 +130,14 @@ namespace GameConsole.Games
 		      ╚═════╝  ╚══╝  ╚════╝╚═╝ ╚═╝
 
 		    Final Score: {Score}
-
+			
 		    
 		    [Escape] close game
 		""");
-			Console.CursorVisible = false;
+
+            Program.user.addNewScore(new HighScore(Name, Score));
+
+            Console.CursorVisible = false;
 			bool gameOverScreen = true;
 			bool closeRequested = false;
 			while (!closeRequested && gameOverScreen)
@@ -144,7 +151,6 @@ namespace GameConsole.Games
 				}
 				
 			}
-		
 		}
 		
 
@@ -286,6 +292,7 @@ namespace GameConsole.Games
 				Console.WriteLine("│");
 			}
 			Console.WriteLine("└" + new string('─', BoardWidth) + "┘");
+			Console.ResetColor();
 		}
 	}
 }

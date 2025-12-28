@@ -14,24 +14,29 @@ namespace GameConsole.Pages
         public StartScreen() : base("WELCOME TO OUR APP")
         {
             Show();
-            MenuScreen newScreen = new MainMenu();
         }
 
         public override void Show()
         {
-            base.Show();
-
-            String bob = "DVIR HASSAN, ROY ZWILLING, YEHONATAN EDRI";
-            CenterText(bob);
-
-            Console.WriteLine("Enter $ to continue: ");
-            ans = Console.ReadLine();
-
-            while(ans != "$")
+            while (true)
             {
-                Console.WriteLine("No, Enter $ to continue: ");
-                ans = Console.ReadLine();
+                base.Show();
+
+                String bob = "DVIR HASSAN, ROY ZWILLING, YEHONATAN EDRI";
+                CenterText(bob);
+
+                Console.WriteLine("Enter $ to continue: ");
+                ans = Console.ReadLine() ?? "";
+
+                while (ans != "$")
+                {
+                    Console.WriteLine("No, Enter $ to continue: ");
+                    ans = Console.ReadLine() ?? "";
+                }
+
+                Screen newScreen = new MainMenu();
             }
+
         }
     }
 

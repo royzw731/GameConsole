@@ -1,4 +1,5 @@
 using GameConsole.Interfaces;
+using GameConsole.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -246,11 +247,14 @@ NextRound:
 					Console.SetCursorPosition(0, 24);
 					Console.WriteLine("Game Over!");
 					Console.WriteLine("Play Again [enter], or quit [escape]?");
-				GetInput:
+
+					Program.user.addNewScore(new HighScore(Name, Score));
+
+                GetInput:
 					switch (Console.ReadKey(true).Key)
 					{
 						case ConsoleKey.Enter: goto NextRound;
-						case ConsoleKey.Escape: Console.Clear(); return;
+						case ConsoleKey.Escape: ; Console.Clear(); return;
 						default: goto GetInput;
 					}
 				}
@@ -648,6 +652,7 @@ finally
 		(int X, int Y)[] array = path.ToArray();
 		return array[1];
 	}
-}
+
+    }
 
 }

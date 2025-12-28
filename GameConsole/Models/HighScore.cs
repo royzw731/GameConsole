@@ -12,6 +12,7 @@ namespace GameConsole.Models
     {
         private string name;
         private int points;
+        private DateTime dateTime;
 
         public string Name
         {
@@ -24,7 +25,13 @@ namespace GameConsole.Models
             get { return points; }
             set { points = value; }
         }
-        private DateTime dateTime;
+
+        public DateTime DateTime
+        {
+            get { return dateTime; }    
+            set { dateTime = value; }
+        }
+        
 
         public HighScore()
         {

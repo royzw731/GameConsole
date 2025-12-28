@@ -11,9 +11,9 @@ namespace GameConsole.Pages
     {
         public MainMenu() : base("Main Menu")
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Add("Register", new RegisterScreen());
             Add("Login", new LoginScreen());
-
             Show();
         }
 

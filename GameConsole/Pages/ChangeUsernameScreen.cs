@@ -1,6 +1,7 @@
 ﻿using GameConsole.Base;
 using GameConsole.Models;
 using System;
+using System.Threading;
 
 namespace GameConsole.Pages
 {
@@ -16,15 +17,38 @@ namespace GameConsole.Pages
         public override void Show()
         {
             base.Show();
-            Console.WriteLine("Change Username");
+
+            string username, password; 
+
             Console.Write("New username: ");
-            string newUsername = Console.ReadLine();
+            username = Console.ReadLine() ?? "";
+            Console.Write("Password: ");
+            password = Console.ReadLine() ?? "";
 
-            user.UserName = newUsername;
+            if (password == user.Password)
+            {
+                Program.user.UserName = username;
+                Console.WriteLine("username changed");
+            }
+            else
+            {
+                while (true)
+                {
+                    Console.WriteLine("Wrong password! pls try again");
+                    Console.Write("New username: ");
+                    username = Console.ReadLine() ?? "";
+                    Console.Write("Password: ");
+                    password = Console.ReadLine() ?? "";
 
-            Console.WriteLine("Username changed successfully");
-            Console.WriteLine("Press any key to return...");
-            Console.ReadKey();
+                    if (password == user.Password)
+                    {
+                        Program.user.UserName = username;
+                        Console.WriteLine("username changed");
+                        break;
+                    }
+                }
+            }
+            Thread.Sleep(1000); 
         }
     }
 }

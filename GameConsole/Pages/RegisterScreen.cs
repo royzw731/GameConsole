@@ -25,11 +25,11 @@ namespace GameConsole.Pages
             CenterText("Enter Your Desired Details");
 
             Console.Write("Enter name: ");
-            this.name = Console.ReadLine();
+            this.name = Console.ReadLine() ?? "";
             Console.Write("Enter username: ");
-            this.username = Console.ReadLine();
+            this.username = Console.ReadLine() ?? "";
             Console.Write("Enter password: ");
-            this.password = Console.ReadLine();
+            this.password = Console.ReadLine() ?? "";
 
             user = UserDb.RegisterUser(name, username, password);
             if (user != null)
@@ -43,11 +43,11 @@ namespace GameConsole.Pages
                     Console.WriteLine("Error, pls try again-");
 
                     Console.Write("Enter name: ");
-                    this.name = Console.ReadLine();
+                    this.name = Console.ReadLine() ?? "";
                     Console.Write("Enter username: ");
-                    this.username = Console.ReadLine();
+                    this.username = Console.ReadLine() ?? "";
                     Console.Write("Enter password: ");
-                    this.password = Console.ReadLine();
+                    this.password = Console.ReadLine() ?? "";
 
                     user = UserDb.RegisterUser(name, username, password);
                     if (user != null)
@@ -57,6 +57,7 @@ namespace GameConsole.Pages
                     }
                 }
             }
+            Thread.Sleep(1000);
         }
     }
 }

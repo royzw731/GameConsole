@@ -1,5 +1,6 @@
 
 using GameConsole.Interfaces;
+using GameConsole.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -87,15 +88,21 @@ public class FluffyBirdGame : IGamePlay
                 if (Frame == int.MaxValue)
                 {
                     Console.SetCursorPosition(0, Height - 1);
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write("You win! Score: " + Frame + ".");
+                    Console.ResetColor();
                     break;
                 }
                 if (!(BirdY < Height - 1 && BirdY > 0) || IsBirdCollidingWithPipe())
                 {
                     Console.SetCursorPosition(0, Height - 1);
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write("Game Over. Score: " + Frame + ".");
+                    Console.ResetColor();
                     Console.Write(" Play Again [enter], or quit [escape]?");
                     Score = Frame;
+                    Program.user.addNewScore(new HighScore(Name, Score));
+
                 GetPlayAgainInput:
                     ConsoleKey key = Console.ReadKey(true).Key;
                     if (key is ConsoleKey.Enter)
@@ -149,8 +156,10 @@ public class FluffyBirdGame : IGamePlay
                             {
                                 if (x > 0 && x < Width - 1 && (y < GapY || y > GapY + PipeGapHeight))
                                 {
+                                    Console.ForegroundColor = ConsoleColor.Green;
                                     Console.SetCursorPosition(x, y);
                                     Console.Write('█');
+                                    Console.ResetColor();
                                 }
                             }
                         }
@@ -216,11 +225,16 @@ public class FluffyBirdGame : IGamePlay
         {
             if ((int)BirdY < Height - 1 && (int)BirdY >= 0)
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 bool verticalVelocity = BirdDY < 0;
                 Console.SetCursorPosition((int)BirdX - 3, (int)BirdY);
                 Console.Write(verticalVelocity ? BirdUp : BirdDown);
+                Console.ResetColor();
             }
         }
+        Console.ResetColor();
     }
+
+
 }
 

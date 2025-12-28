@@ -11,6 +11,7 @@ namespace GameConsole.Pages
     {
         public LoginMenu() : base("Hello " + Program.getUser().Name)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Add("userActionMenu", new UserActionMenu());
             Add("menuGames", new MenuGames());
 

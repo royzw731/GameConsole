@@ -27,25 +27,26 @@ namespace GameConsole.Pages
 
             for (int i = 0; i < games.Count; i++)
             {
-                Console.BackgroundColor = ConsoleColor.White;
-                if (i % 3 == 0)
+                Console.BackgroundColor = ConsoleColor.Black;
+                if (i%3==0)
+                {
+                   Console.ForegroundColor = ConsoleColor.Yellow;
+                }
+                if (i%3==1)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
                 }
-                else if (i % 3 == 1)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                }
-                else
+                if (i%3==2)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                 }
-                    CenterText($"For {games[i].Name} enter {i + 1}");
+                CenterText($"For {games[i].Name} enter {i + 1}");
+                Console.ResetColor();
             }
             
             while (true)
             {
-                string ans = Console.ReadLine();
+                string ans = Console.ReadLine() ?? "";
 
                 if (int.TryParse(ans, out int num) && num > 0 && num <= games.Count)
                 {
