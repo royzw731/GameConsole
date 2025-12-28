@@ -10,7 +10,7 @@ namespace GameConsole.Base
     {
         private List<MenuItem> items;
 
-      
+
         public MenuScreen(string title) : base(title)
         {
             items = new List<MenuItem>();

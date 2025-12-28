@@ -29,7 +29,7 @@ namespace GameConsole.Pages
 
             while(ans != "$")
             {
-                Console.WriteLine("No Bruh, Enter $ to continue: ");
+                Console.WriteLine("No, Enter $ to continue: ");
                 ans = Console.ReadLine();
             }
         }
